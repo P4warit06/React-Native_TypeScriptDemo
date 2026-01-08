@@ -1,4 +1,3 @@
-// src/components/layout/MegaMenu.tsx
 import { Link } from "react-router-dom";
 
 type MegaItem = {

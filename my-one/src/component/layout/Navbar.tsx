@@ -1,86 +1,60 @@
-// src/components/layout/Navbar.tsx
 import { Link } from "react-router-dom";
-import MegaMenu from "./Megamenu";
 import Container from "./Container";
-import logo from "../../assets/logo-one-black.png";
-
-const retailMenu = [
-  {
-    title: "Shopping",
-    description: "Curated global brands",
-    image: "/images/menu-retail-1.jpg",
-    href: "/retail",
-  },
-  {
-    title: "Dining",
-    description: "World-class restaurants",
-    image: "/images/menu-retail-2.jpg",
-    href: "/dining",
-  },
-  {
-    title: "Lifestyle",
-    description: "Urban lifestyle experience",
-    image: "/images/menu-retail-3.jpg",
-    href: "/lifestyle",
-  },
-  {
-    title: "Mitsukoshi",
-    description: "Japanese luxury department store",
-    image: "/images/menu-retail-4.jpg",
-    href: "/mitsukoshi",
-  },
-];
+import logo from "../../assets/Logo/logo-one-black.png";
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-white backdrop-blur-md">
-      <Container className="h-20 flex items-center justify-between">
-              <div>Hamberger Section</div>
-              
-        <div className="font-[Noto]">สำรวจ วัน แบงค็อก</div>
-        <div className="mt-0 mr-4 mb-0 ml-0 pt-0.5 pr-1.5 ">
-         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-        </svg>
+    <header className="fixed top-0 left-0 z-50 w-full bg-white">
+      <Container>
+        <div className="relative h-20 flex items-center">
+          {/* LEFT */}
+          <div className="flex items-center gap-6 text-sm tracking-wide">
+            {/* Hamburger */}
+            <button className="flex flex-col gap-1">
+              <span className="w-6 h-[1px] bg-black"></span>
+              <span className="w-6 h-[1px] bg-black"></span>
+              <span className="w-6 h-[1px] bg-black"></span>
+            </button>
 
-        </div>
+            <span className="font-light">สำรวจ วัน แบงค็อก</span>
 
-
-        {/* Logo */}
-        <Link to="/" className="justify-center flex display-center">
-          <img src={logo} />
-        </Link>
-
-        <div className="font-sans text-16px ">ที่ตั้ง</div>
-
-        {/* Main Menu */}
-        {/* <nav className="hidden lg:flex gap-10 text-xs tracking-widest uppercase text-black">
-          <div className="relative group">
-            <Link to="/retail" className="hover:opacity-70 transition">
-              Retail
-            </Link>
-            <MegaMenu items={retailMenu} />
+            {/* Search */}
+            <button className="ml-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1}
+                stroke="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </button>
+            <button className="flex items-center gap-1">
+              TH
+              <span className="text-xs">▾</span>
+            </button>
           </div>
 
-          <Link to="/culture" className="hover:opacity-70 transition">
-            Art & Culture
+          {/* CENTER LOGO */}
+          <Link to="/" className="absolute left-1/2 -translate-x-1/2">
+            <img src={logo} alt="One Bangkok" className="h-8" />
           </Link>
 
-          <Link to="/office" className="hover:opacity-70 transition">
-            Office
-          </Link>
+          {/* RIGHT */}
+          <div className="ml-auto flex items-center gap-6 text-sm tracking-wide">
+            
 
-          <Link to="/residences" className="hover:opacity-70 transition">
-            Residences
-          </Link>
-
-          <Link to="/news" className="hover:opacity-70 transition">
-            News
-          </Link>
-        </nav>
-
-        {/* Language */}
-        {/* <div className="text-xs tracking-widest text-white">TH / EN</div> */}
+            <button className="px-4 py-2 bg-black text-white text-xs tracking-wide">
+              ที่ตั้ง
+            </button>
+          </div>
+        </div>
       </Container>
     </header>
   );
