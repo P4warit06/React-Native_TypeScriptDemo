@@ -14,7 +14,7 @@ type Props = {
 export default function MegaMenu({ items }: Props) {
   return (
     <div className="absolute left-0 top-full w-full bg-white text-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-      <div className="mx-auto max-w-[1440px] px-16 py-12 grid grid-cols-4 gap-10">
+      <div className="mx-auto max-w-360 px-16 py-12 grid grid-cols-4 gap-10">
         {items.map((item) => (
           <Link
             key={item.title}

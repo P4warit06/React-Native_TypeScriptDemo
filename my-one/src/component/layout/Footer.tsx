@@ -1,5 +1,5 @@
 import Container from "./Container";
-import logo from "../../assets/Logo/logo-one-white.png";
+import logo from "../../assets/Logo One Bangkok/logo-one-white.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {

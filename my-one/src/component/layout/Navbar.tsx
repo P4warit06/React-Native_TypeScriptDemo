@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Container from "./Container";
-import logo from "../../assets/Logo/logo-one-black.png";
+import logo from "../../assets/Logo One Bangkok/logo-one-black.png";
 
 export default function Navbar() {
   return (
@@ -11,12 +11,12 @@ export default function Navbar() {
           <div className="flex items-center gap-6 text-sm tracking-wide">
             {/* Hamburger */}
             <button className="flex flex-col gap-1">
-              <span className="w-6 h-[1px] bg-black"></span>
-              <span className="w-6 h-[1px] bg-black"></span>
-              <span className="w-6 h-[1px] bg-black"></span>
+              <span className="w-6 h-px bg-black"></span>
+              <span className="w-6 h-px bg-black"></span>
+              <span className="w-6 h-px bg-black"></span>
             </button>
 
-            <span className="font-light">สำรวจ วัน แบงค็อก</span>
+            <span className="font-noto text-base">สำรวจ วัน แบงค็อก</span>
 
             {/* Search */}
             <button className="ml-2">
@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="ml-auto flex items-center gap-6 text-sm tracking-wide">
             
 
-            <button className="px-4 py-2 bg-black text-white text-xs tracking-wide">
+            <button className="px-6 py-2 bg-black text-white text-sm tracking-wide font-noto">
               ที่ตั้ง
             </button>
           </div>
