@@ -2,35 +2,50 @@ import SectionHeader from "./template/SectionHeader";
 import ArticleCard from "../cards/ArticleCard";
 import HorizontalSlider from "../slider/HorizontalSlider";
 import Button from "../UI/Button";
+import Container from "../layout/Container";
+
+import AppBlog from "../../assets/Article/APP_Blog-03.jpg";
+import BlogCover from "../../assets/Article/Blogs Cover.jpg";
+import Cities from "../../assets/Article/Citie.jpg";
+
+const articles = [
+  {
+    image: AppBlog,
+    category: "เมืองอัจฉริยะ",
+    title:
+      "สมาชิก วัน แบงค็อก สามารถย้ายมาใช้ แอปพลิเคชัน One Bangkok พร้อมรับประสบการณ์ที่ดียิ่งขึ้น",
+    date: "05 ม.ค. 2569",
+  },
+  {
+    image: BlogCover,
+    category: "วัน แบงค็อก",
+    title: "365 วัน กับ Universe แห่งความสุข ที่ One Bangkok",
+    date: "05 ม.ค. 2569",
+  },
+  {
+    image: Cities,
+    category: "วัน แบงค็อก",
+    title: "สำรวจเมืองในอนาคต แนวคิดการใช้ชีวิตที่สมดุล",
+    date: "26 ธ.ค. 2568",
+  },
+];
 
 export default function ArticlesSection() {
   return (
-    <section className="bg-pink-300 py-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <SectionHeader title="บทความน่าสนใจ" />
+    <section className="bg-[#ffabb0] pt-12">
+    
+        <SectionHeader title="บทความน่าสนใจ" className="text-[#842525]" />
 
         <HorizontalSlider>
-          <ArticleCard
-            image="/images/article-1.jpg"
-            title="One Bangkok Application พร้อมประสบการณ์ที่ดียิ่งขึ้น"
-            date="05 ม.ค. 2569"
-          />
-          <ArticleCard
-            image="/images/article-2.jpg"
-            title="365 วัน กับ Universe แห่งความสุข"
-            date="05 ม.ค. 2569"
-          />
-          <ArticleCard
-            image="/images/article-3.jpg"
-            title="สำรวจเมืองในอนาคต"
-            date="26 ธ.ค. 2568"
-          />
+          {articles.map((article, index) => (
+            <ArticleCard key={index} {...article} />
+          ))}
         </HorizontalSlider>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center pb-10">
           <Button>ดูทั้งหมด</Button>
         </div>
-      </div>
+     
     </section>
   );
 }

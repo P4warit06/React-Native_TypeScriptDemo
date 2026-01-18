@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import SectionHeader from "../home/template/SectionHeader";
-
+import Container from "../layout/Container";
 type GridVisionProps = {
   images: string[];
 };
@@ -49,75 +49,76 @@ export default function GridVision({ images }: GridVisionProps) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto mt-10 mb-30">
-      <SectionHeader title="เปิดมุมมองใหม่ใน วัน แบงค็อก" />
+    <Container>
+      <div className="w-full mx-auto mt-10 mb-30">
+        <SectionHeader title="เปิดมุมมองใหม่ใน วัน แบงค็อก" />
 
-      <div
-        ref={scrollContainerRef}
-        className={`overflow-x-auto scrollbar-hide ${
-          isDragging ? "cursor-grabbing" : "cursor-grab"
-        }`}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          scrollBehavior: isDragging ? "auto" : "smooth",
-          WebkitOverflowScrolling: "touch",
-        }}
-      >
-        <div className="flex gap-6 pt-12 pb-8">
-          {images.map((img, index) => (
-            <div
-              key={index}
-              className="relative flex-shrink-0 transition-all duration-300 ease-out"
-              style={{
-                userSelect: "none",
-              }}
-              onMouseEnter={() => setHoveredIndex(index)}
-            >
+        <div
+          ref={scrollContainerRef}
+          className={`overflow-x-auto scrollbar-hide ${
+            isDragging ? "cursor-grabbing" : "cursor-grab"
+          }`}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            scrollBehavior: isDragging ? "auto" : "smooth",
+            WebkitOverflowScrolling: "touch",
+          }}
+        >
+          <div className="flex gap-6 pt-12 pb-8">
+            {images.map((img, index) => (
               <div
-                className="relative w-60 h-60 rounded-lg overflow-hidden shadow-lg"
+                key={index}
+                className="relative flex-shrink-0 transition-all duration-300 ease-out"
                 style={{
-                  transform:
-                    hoveredIndex === index
-                      ? "translateY(-20px)"
-                      : "translateY(0)",
-                  boxShadow:
-                    hoveredIndex === index
-                      ? "0 25px 50px rgba(0,0,0,0.3)"
-                      : "0 10px 25px rgba(0,0,0,0.15)",
-                  transition: "all 0.3s ease-out",
+                  userSelect: "none",
                 }}
+                onMouseEnter={() => setHoveredIndex(index)}
               >
-                <img
-                  src={img}
-                  alt={hoverTexts[index] || `มุมมองที่ ${index + 1}`}
-                  draggable="false"
-                  className="w-full h-full object-cover cursor-pointer"
-                  onClick={() => !isDragging && setCurrent(index)}
-                />
-
-                {/* Text Overlay */}
                 <div
-                  className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent 
-                    flex items-end justify-center pb-6 transition-opacity duration-300"
+                  className="relative w-60 h-60 rounded-lg overflow-hidden shadow-lg"
                   style={{
-                    opacity: hoveredIndex === index ? 1 : 0,
-                    pointerEvents: "none",
+                    transform:
+                      hoveredIndex === index
+                        ? "translateY(-20px)"
+                        : "translateY(0)",
+                    boxShadow:
+                      hoveredIndex === index
+                        ? "0 25px 50px rgba(0,0,0,0.3)"
+                        : "0 10px 25px rgba(0,0,0,0.15)",
+                    transition: "all 0.3s ease-out",
                   }}
                 >
-                  <h3 className="text-white text-lg font-semibold px-4 text-center">
-                    {hoverTexts[index] || `มุมมองที่ ${index + 1}`}
-                  </h3>
+                  <img
+                    src={img}
+                    alt={hoverTexts[index] || `มุมมองที่ ${index + 1}`}
+                    draggable="false"
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => !isDragging && setCurrent(index)}
+                  />
+
+                  {/* Text Overlay */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent 
+                    flex items-end justify-center pb-6 transition-opacity duration-300"
+                    style={{
+                      opacity: hoveredIndex === index ? 1 : 0,
+                      pointerEvents: "none",
+                    }}
+                  >
+                    <h3 className="text-white text-lg font-semibold px-4 text-center">
+                      {hoverTexts[index] || `มุมมองที่ ${index + 1}`}
+                    </h3>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <style>{`
+        <style>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
@@ -126,6 +127,7 @@ export default function GridVision({ images }: GridVisionProps) {
           scrollbar-width: none;
         }
       `}</style>
-    </div>
+      </div>
+    </Container>
   );
 }

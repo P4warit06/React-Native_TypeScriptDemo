@@ -1,61 +1,115 @@
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import Container from "./Container";
 import logo from "../../assets/Logo One Bangkok/logo-one-black.png";
 
+const menus = [
+  "รีเทล",
+  "ศิลปะและวัฒนธรรม",
+  "โรงแรมและเซอร์วิสอพาร์ทเมนท์",
+  "อาคารสำนักงาน",
+  "ที่อยู่อาศัย",
+  "แนวทางความยั่งยืนสู่เมืองอัจฉริยะ",
+  "พื้นที่สีเขียวและพื้นที่เปิดโล่ง",
+];
+
 export default function Navbar() {
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (!menuRef.current) return;
+    menuRef.current.scrollBy({
+      left: dir === "left" ? -240 : 240,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <header className="fixed top-0 left-0 z-50 w-full bg-white">
+    <header className="fixed top-0 left-0 z-50 w-full bg-white border-b border-gray-200">
+      {/* TOP BAR */}
       <Container>
-        <div className="relative h-20 flex items-center">
+        <div className="relative flex h-20 items-center justify-between">
           {/* LEFT */}
-          <div className="flex items-center gap-6 text-sm tracking-wide">
-            {/* Hamburger */}
-            <button className="flex flex-col gap-1">
-              <span className="w-6 h-px bg-black"></span>
-              <span className="w-6 h-px bg-black"></span>
-              <span className="w-6 h-px bg-black"></span>
+          <div className="flex items-center gap-4">
+            <button className="flex flex-col gap-1.5 p-2">
+              <span className="w-5 h-0.5 bg-black" />
+              <span className="w-5 h-0.5 bg-black" />
+              <span className="w-5 h-0.5 bg-black" />
             </button>
 
-            <span className="font-noto text-base">สำรวจ วัน แบงค็อก</span>
+            <span className="text-sm tracking-wide whitespace-nowrap">
+              สำรวจ วัน แบงค็อก
+            </span>
 
-            {/* Search */}
-            <button className="ml-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1}
-                stroke="currentColor"
-                className="w-5 h-5"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                />
-              </svg>
-            </button>
-            <button className="flex items-center gap-1">
-              TH
-              <span className="text-xs">▾</span>
+            <button className="p-2 hover:opacity-70 transition">🔍</button>
+
+            <button className="flex items-center gap-1 text-sm p-2">
+              TH <span className="text-xs">▾</span>
             </button>
           </div>
 
-          {/* CENTER LOGO */}
-          <Link to="/" className="absolute left-1/2 -translate-x-1/2">
-            <img src={logo} alt="One Bangkok" className="h-8" />
-          </Link>
+          {/* LOGO */}
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <Link to="/">
+              <img src={logo} alt="One Bangkok" className="h-7" />
+            </Link>
+          </div>
 
           {/* RIGHT */}
-          <div className="ml-auto flex items-center gap-6 text-sm tracking-wide">
-            
-
-            <button className="px-6 py-2 bg-black text-white text-sm tracking-wide font-noto">
-              ที่ตั้ง
-            </button>
-          </div>
+          <button className="px-6 py-2.5 bg-black text-white text-sm tracking-wide hover:bg-gray-800 transition">
+            ที่ตั้ง
+          </button>
         </div>
       </Container>
+
+      {/* SECOND NAV */}
+      <div className="relative bg-[#3f4b5a]">
+        <Container>
+          <div className="relative flex items-center h-[58px]">
+            {/* LEFT ARROW */}
+            <button
+              onClick={() => scroll("left")}
+              className="absolute -left-8 top-1/2 -translate-y-1/2
+                         w-10 h-10 rounded-full
+                         flex items-center justify-center
+                         text-white/80 hover:text-white
+                         bg-black/30 hover:bg-black/50 transition"
+            >
+              ‹
+            </button>
+
+            {/* MENU */}
+            <div
+              ref={menuRef}
+              className="flex items-center gap-12 overflow-x-auto
+                         whitespace-nowrap scroll-smooth no-scrollbar
+                         text-sm text-white w-full"
+            >
+              {menus.map((item, index) => (
+                <Link
+                  key={index}
+                  to="#"
+                  className="relative hover:opacity-80 transition"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+
+            {/* RIGHT ARROW */}
+            <button
+              onClick={() => scroll("right")}
+              className="absolute -right-8 top-1/2 -translate-y-1/2
+                         w-10 h-10 rounded-full
+                         flex items-center justify-center
+                         text-white/80 hover:text-white
+                         bg-black/30 hover:bg-black/50 transition"
+            >
+              ›
+            </button>
+          </div>
+        </Container>
+      </div>
     </header>
   );
 }
