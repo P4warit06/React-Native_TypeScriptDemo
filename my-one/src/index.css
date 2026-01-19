@@ -2,6 +2,13 @@
   font-family: NotoSansThai Regular ;
   src: url("../src/assets/fonts/NotoSansThai-Regular.ttf");
 }
+@font-face {
+  font-family: 'OneBangkok';  
+  src: url('./assets/fonts/onebangkok-bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; 
+}
 @theme{
   --font-noto : NotoSansThai Regular , "sans-serif" ; 
 }

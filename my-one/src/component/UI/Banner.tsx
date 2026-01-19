@@ -1,19 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type BannerProps = {
   images: string[];
 };
 
+const AUTO_DURATION = 5000; // 5 วินาที
+
 export default function Banner({ images }: BannerProps) {
   const [current, setCurrent] = useState(0);
+  const [progress, setProgress] = useState(0);
 
+  // Prev slide
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
+  // Next slide
   const nextSlide = () => {
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
+
+  const goToSlide = (index: number) => {
+    setCurrent(index);
+  };
+
+  // Auto slide
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const slideTimer = setInterval(() => {
+      setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, AUTO_DURATION);
+
+    return () => clearInterval(slideTimer);
+  }, [images.length]);
+
+  // Progress bar
+  useEffect(() => {
+    setProgress(0);
+
+    const progressTimer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) return 100;
+        return prev + 100 / (AUTO_DURATION / 100);
+      });
+    }, 100);
+
+    return () => clearInterval(progressTimer);
+  }, [current]);
 
   return (
     <div className="relative w-full h-[calc(100vh-85px)] max-h-[calc(100vh-85px)] overflow-hidden">
@@ -37,33 +71,37 @@ export default function Banner({ images }: BannerProps) {
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-16 h-16 rounded-full flex items-center justify-center transition-all z-10 shadow-lg hover:scale-110 active:scale-95"
-        aria-label="Previous slide"
       >
-        <span className="text-3xl font-extralight">‹</span>
+        ‹
       </button>
 
       <button
         onClick={nextSlide}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-16 h-16 rounded-full flex items-center justify-center transition-all z-10 shadow-lg hover:scale-110 active:scale-95"
-        aria-label="Next slide"
       >
-        <span className="text-3xl font-extralight">›</span>
+        ›
       </button>
 
-      {/* Dots Indicator */}
+     
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[35%] flex gap-4 z-10">
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrent(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === current
-                  ? "bg-white w-6 h-2"
-                  : "bg-white/50 hover:bg-white/80 w-2 h-2"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
+              onClick={() => goToSlide(index)}
+              className="relative flex-1 text-left"
+            >
+              <div className="h-1 rounded-full overflow-hidden bg-white/40">
+                {current === index && (
+                  <div
+                    className="h-full bg-white transition-all"
+                    style={{ width: `${progress}%` }}
+                  />
+                )}
+              </div>
+
+            
+            </button>
           ))}
         </div>
       )}

@@ -24,12 +24,11 @@ export default function GreenZone() {
       <Container>
         <SectionHeader
           title="พื้นที่สีเขียวและพื้นที่เปิดโล่งใน วัน แบงค็อก"
-          className="flex justify-center mb-12"
+          className="flex justify-center mb-12 items-center mx-auto"
         />
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
           {/* Left Column: Text List */}
-        
 
           {/* Right Column: Image Grid */}
           <div className="lg:w-3/5">
@@ -37,9 +36,9 @@ export default function GreenZone() {
               {areas.map((area, index) => (
                 <div
                   key={index}
-                  className="relative overflow-hidden rounded-lg group cursor-pointer"
+                  className="relative overflow-hidden rounded-lg group cursor-pointer min-h-[250px] md:min-h-[300px]" // เพิ่ม min-height
                 >
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative w-full h-full">
                     <img
                       src={area.image}
                       alt={area.title}

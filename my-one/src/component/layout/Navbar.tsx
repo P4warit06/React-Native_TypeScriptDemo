@@ -56,15 +56,13 @@ export default function Navbar() {
           </div>
 
           {/* RIGHT */}
-          <button className="px-6 py-2.5 bg-black text-white text-sm tracking-wide hover:bg-gray-800 transition">
+          <button className="font-OneBangkok px-6 py-2.5 bg-black text-white text-sm tracking-wide hover:bg-gray-800 transition">
             ที่ตั้ง
           </button>
         </div>
-      </Container>
 
-      {/* SECOND NAV */}
-      <div className="relative bg-[#3f4b5a]">
-        <Container>
+        {/* SECOND NAV */}
+        <div className="relative backdrop-blur-md bg-[#3f4b5a]">
           <div className="relative flex items-center h-[58px]">
             {/* LEFT ARROW */}
             <button
@@ -108,8 +106,8 @@ export default function Navbar() {
               ›
             </button>
           </div>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </header>
   );
 }

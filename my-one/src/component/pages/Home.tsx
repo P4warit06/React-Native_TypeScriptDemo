@@ -6,6 +6,7 @@ import GreenZone from "../home/GreenZone";
 // import Swiper from "swiper";
 // import MySwiper from "../UI/MySwiper";
 import ActivityContainer from "./ActivityContrainer";
+import SustainabilitySection from "../home/SustainabilitySection";
 export default function Home() {
   return (
     <>
@@ -14,7 +15,7 @@ export default function Home() {
       <ActivityContainer />
       <ArticlesSection />
       <GreenZone />
-      
+      <SustainabilitySection />
 
       {/* <Hero />
       <CategoryGrid />
