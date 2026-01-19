@@ -11,48 +11,56 @@ export default function GreenZone() {
     { title: "สวนใจกลางเมือง", image: Garden },
     { title: "พื้นที่เปิดโล่ง", image: OpenSpace },
     { title: "กิจกรรมพิเศษที่ วัน แบงค็อก", image: SpecialEvent },
-    { title: "ศูนย์ราชการนนทบุรี", image: Community },
+    { title: "ศูนย์รวมคอมมูนิตี้", image: Community },
     {
       title: "พื้นที่สีเขียวและพื้นที่เปิดโล่ง",
       image: GreenZoneOpen,
     },
   ];
 
+  const leftAreas = areas.slice(0, 4);
+  const rightArea = areas[4];
 
   return (
     <div className="py-16">
+      <SectionHeader
+        title="พื้นที่สีเขียวและพื้นที่เปิดโล่งใน วัน แบงค็อก"
+        className="flex justify-center mb-12 items-center mx-auto font-[OneBangkok]"
+      />
       <Container>
-        <SectionHeader
-          title="พื้นที่สีเขียวและพื้นที่เปิดโล่งใน วัน แบงค็อก"
-          className="flex justify-center mb-12 items-center mx-auto"
-        />
-
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          {/* Left Column: Text List */}
-
-          {/* Right Column: Image Grid */}
-          <div className="lg:w-3/5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {areas.map((area, index) => (
-                <div
-                  key={index}
-                  className="relative overflow-hidden rounded-lg group cursor-pointer min-h-[250px] md:min-h-[300px]" // เพิ่ม min-height
-                >
-                  <div className="relative w-full h-full">
-                    <img
-                      src={area.image}
-                      alt={area.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="text-white text-lg font-medium">
-                        {area.title}
-                      </h3>
-                    </div>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-[auto_auto] gap-2 justify-center">
+          {/* Left : 4 images */}
+          <div className="grid grid-cols-2 grid-rows-2 gap-2">
+            {leftAreas.map((area, index) => (
+              <div
+                key={index}
+                className="relative overflow-hidden  group cursor-pointer w-[362.5px] h-[362.5px]"
+              >
+                <img
+                  src={area.image}
+                  alt={area.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 font-[OneBangkok]"
+                />
+                <div className="absolute inset-0 " />
+                <div className="absolute bottom-4 left-4">
+                  <h3 className="text-white text-lg font-noto">{area.title}</h3>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+
+          {/* Right : Big image */}
+          <div className="relative overflow-hidden group cursor-pointer  w-[745px] h-[735px]">
+            <img
+              src={rightArea.image}
+              alt={rightArea.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 "
+            />
+            <div className="absolute inset-0" />
+            <div className="absolute bottom-6 left-6">
+              <h3 className="text-white text-xl font-[OneBangkok]">
+                {rightArea.title}
+              </h3>
             </div>
           </div>
         </div>

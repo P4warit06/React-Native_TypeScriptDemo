@@ -51,7 +51,10 @@ export default function GridVision({ images }: GridVisionProps) {
   return (
     <Container>
       <div className="w-full mx-auto mt-10 mb-30">
-        <SectionHeader title="เปิดมุมมองใหม่ใน วัน แบงค็อก" />
+        <SectionHeader
+          title="เปิดมุมมองใหม่ใน วัน แบงค็อก"
+          className="font-[OneBangkok]"
+        />
 
         <div
           ref={scrollContainerRef}
@@ -102,7 +105,7 @@ export default function GridVision({ images }: GridVisionProps) {
                   {/* Text Overlay */}
                   <div
                     className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent 
-                    flex items-end justify-center pb-6 transition-opacity duration-300"
+                    flex items-end justify-center pb-6 transition-opacity duration-300 font-[OneBangkok]"
                     style={{
                       opacity: hoveredIndex === index ? 1 : 0,
                       pointerEvents: "none",

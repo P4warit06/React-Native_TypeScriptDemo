@@ -12,7 +12,7 @@ export default function ActivitSection({ images = [] }: ActivityPicProps) {
     <section className="bg-[#87daff] pt-12">
       <div className="w-full mx-auto">
         <Container>
-          <SectionHeader title="กิจกรรมน่าสนใจ" />
+          <SectionHeader title="กิจกรรมน่าสนใจ" className="font-[OneBangkok]" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mb-8">
             <EventCard
@@ -33,7 +33,7 @@ export default function ActivitSection({ images = [] }: ActivityPicProps) {
             />
           </div>
 
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-10 pb-10 font-[OneBangkok]">
             <Button>ดูทั้งหมด</Button>
           </div>
         </Container>

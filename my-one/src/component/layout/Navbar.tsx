@@ -37,7 +37,7 @@ export default function Navbar() {
               <span className="w-5 h-0.5 bg-black" />
             </button>
 
-            <span className="text-sm tracking-wide whitespace-nowrap">
+            <span className="text-sm tracking-wide whitespace-nowrap font-[OneBangkok]">
               สำรวจ วัน แบงค็อก
             </span>
 
@@ -56,7 +56,7 @@ export default function Navbar() {
           </div>
 
           {/* RIGHT */}
-          <button className="font-OneBangkok px-6 py-2.5 bg-black text-white text-sm tracking-wide hover:bg-gray-800 transition">
+          <button className="font-OneBangkok px-6 py-2.5 bg-black text-white text-sm tracking-wide hover:bg-gray-800 transition font-[OneBangkok]">
             ที่ตั้ง
           </button>
         </div>
@@ -71,7 +71,7 @@ export default function Navbar() {
                          w-10 h-10 rounded-full
                          flex items-center justify-center
                          text-white/80 hover:text-white
-                         bg-black/30 hover:bg-black/50 transition"
+                         bg-black/30 hover:bg-black/50 transition "
             >
               ‹
             </button>
@@ -87,7 +87,7 @@ export default function Navbar() {
                 <Link
                   key={index}
                   to="#"
-                  className="relative hover:opacity-80 transition"
+                  className="relative hover:opacity-80 transition font-[OneBangkok]"
                 >
                   {item}
                 </Link>

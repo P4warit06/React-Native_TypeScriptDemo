@@ -46,11 +46,11 @@ export default function SustainabilitySection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 text-white w-full">
             {/* Left Content */}
             <div>
-              <h2 className="text-4xl font-bold leading-tight">
+              <h2 className="text-4xl font-bold leading-tight font-[OneBangkok]">
                 แนวทางความยั่งยืนสู่เมืองอัจฉริยะ
               </h2>
 
-              <p className="mt-6 max-w-xl text-sm leading-relaxed opacity-90">
+              <p className="mt-6 max-w-xl text-sm leading-relaxed opacity-90 font-[OneBangkok]">
                 วัน แบงค็อก สร้างมาตรฐานใหม่เพื่อการพัฒนาที่ยั่งยืนของประเทศ
                 และมุ่งมั่นในการก้าวสู่ระดับโลก
                 ด้วยโครงการเมืองอัจฉริยะสีเขียวใจกลางกรุงเทพฯ
@@ -59,11 +59,11 @@ export default function SustainabilitySection() {
                 และเป็นมิตรกับสิ่งแวดล้อม
               </p>
 
-              <p className="mt-4 text-xs opacity-70">
+              <p className="mt-4 text-xs opacity-70 font-[OneBangkok]">
                 *ข้อมูลจากการประเมินภายในของ วัน แบงค็อก
               </p>
 
-              <button className="mt-8 bg-white text-black px-8 py-3 text-sm font-medium hover:bg-neutral-200 transition">
+              <button className="mt-8 bg-white text-black px-8 py-3 text-sm font-medium hover:bg-neutral-200 transition font-[OneBangkok]">
                 ดูเพิ่มเติม
               </button>
             </div>

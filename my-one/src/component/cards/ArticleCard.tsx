@@ -12,13 +12,11 @@ export default function ArticleCard({
   date,
 }: ArticleCardProps) {
   return (
-    <div className="w-[600px] flex-shrink-0">
-      <img src={image} alt={title} />
+    <div className="w-[600px] shrink-0 snap-start">
+      <img src={image} alt={title} className="w-full object-cover" />
+
       <div className="space-y-2">
-        <span
-          className="inline-block bg-[#842525]
- text-white text-xs font-medium px-2.5  py-1.5 mt-5"
-        >
+        <span className="inline-block bg-[#842525] text-white text-xs font-medium px-2.5 py-1.5 mt-5">
           {category}
         </span>
       </div>
@@ -31,3 +29,4 @@ export default function ArticleCard({
     </div>
   );
 }
+
