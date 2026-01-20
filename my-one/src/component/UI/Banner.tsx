@@ -1,21 +1,20 @@
 import { useState, useEffect } from "react";
-
+import leftArrow from '../../assets/icon/left-arrow.png'
+import rightArrow from '../../assets/icon/right-arrow.png'
 type BannerProps = {
   images: string[];
 };
 
-const AUTO_DURATION = 5000; // 5 วินาที
+const AUTO_DURATION = 5000;
 
 export default function Banner({ images }: BannerProps) {
   const [current, setCurrent] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  // Prev slide
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // Next slide
   const nextSlide = () => {
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
@@ -35,7 +34,7 @@ export default function Banner({ images }: BannerProps) {
     return () => clearInterval(slideTimer);
   }, [images.length]);
 
-  // Progress bar
+ 
   useEffect(() => {
     setProgress(0);
 
@@ -50,7 +49,7 @@ export default function Banner({ images }: BannerProps) {
   }, [current]);
 
   return (
-    <div className="relative w-full h-[calc(100vh-85px)] max-h-[calc(100vh-85px)] overflow-hidden">
+    <div className="relative w-full h-[calc(100vh-85px)] max-h-[calc(100vh)] overflow-hidden ">
       {/* Slides */}
       <div
         className="flex h-full transition-transform duration-500 ease-in-out"
@@ -70,19 +69,20 @@ export default function Banner({ images }: BannerProps) {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-16 h-16 rounded-full flex items-center justify-center transition-all z-10 shadow-lg hover:scale-110 active:scale-95"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-13.5 h-13.5 rounded-full flex items-center justify-center transition-all z-10 shadow-lg hover:scale-110 active:scale-95"
       >
-        ‹
+        <img src={leftArrow} />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white w-16 h-16 rounded-full flex items-center justify-center transition-all z-10 shadow-lg hover:scale-110 active:scale-95"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-black/90 text-white 
+        w-[55px] h-[55px]
+        rounded-full flex items-center justify-center transition-all z-10 shadow-lg hover:scale-110 active:scale-95"
       >
-        ›
+        <img src={rightArrow} />
       </button>
 
-     
       {images.length > 1 && (
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[35%] flex gap-4 z-10">
           {images.map((_, index) => (
@@ -91,7 +91,7 @@ export default function Banner({ images }: BannerProps) {
               onClick={() => goToSlide(index)}
               className="relative flex-1 text-left"
             >
-              <div className="h-1 rounded-full overflow-hidden bg-white/40">
+              <div className="h-[3px] rounded-full overflow-hidden bg-white/40">
                 {current === index && (
                   <div
                     className="h-full bg-white transition-all"
@@ -99,8 +99,6 @@ export default function Banner({ images }: BannerProps) {
                   />
                 )}
               </div>
-
-            
             </button>
           ))}
         </div>

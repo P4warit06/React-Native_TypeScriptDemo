@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import Container from "./Container";
 import logo from "../../assets/Logo One Bangkok/logo-one-black.png";
-
+import SearchIcon from "../../assets/icon/Search_Icon.png"
+import DownIcon from "../../assets/icon/down.png"
 const menus = [
   "รีเทล",
   "ศิลปะและวัฒนธรรม",
@@ -52,9 +53,14 @@ export default function Navbar() {
               <span className="text-sm tracking-wide whitespace-nowrap font-[OneBangkok]">
                 สำรวจ วัน แบงค็อก
               </span>
-              <button className="p-2 hover:opacity-70 transition">🔍</button>
+           
+              <button className="p-2 hover:opacity-70 transition">
+                <img src={ SearchIcon}  className="w-6 h-6"/>
+              </button>
+
               <button className="flex items-center gap-1 text-sm p-2">
-                TH <span className="text-xs">▾</span>
+                TH 
+                <img src={ DownIcon} className="mt-1 w-3 h-3"/>
               </button>
             </div>
 
