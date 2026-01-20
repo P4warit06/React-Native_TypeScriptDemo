@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 type ContainerProps = {
   children: ReactNode;
   className?: string;
-  fullWidthForTable?: boolean; 
+  fullWidthForTable?: boolean;
 };
 
 export default function Container({

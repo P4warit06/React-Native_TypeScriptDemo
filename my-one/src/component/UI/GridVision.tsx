@@ -53,7 +53,7 @@ export default function GridVision({ images }: GridVisionProps) {
       <div className="w-full mx-auto mt-10 mb-30">
         <SectionHeader
           title="เปิดมุมมองใหม่ใน วัน แบงค็อก"
-          className="font-[OneBangkok]"
+          className="font-[OneBangkok] text-[40px]"
         />
 
         <div

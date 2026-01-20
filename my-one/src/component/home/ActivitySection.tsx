@@ -12,7 +12,10 @@ export default function ActivitSection({ images = [] }: ActivityPicProps) {
     <section className="bg-[#87daff] pt-12">
       <div className="w-full mx-auto">
         <Container>
-          <SectionHeader title="กิจกรรมน่าสนใจ" className="font-[OneBangkok]" />
+          <SectionHeader
+            title="กิจกรรมน่าสนใจ"
+            className="font-[OneBangkok] text-[#162c51]"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mb-8">
             <EventCard
